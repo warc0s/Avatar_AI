@@ -1,62 +1,84 @@
 # Avatar AI
 
 ## Descripción
+Avatar AI es una aplicación web que te permite generar avatares de fantasía únicos y personalizados gracias al poder de la Inteligencia Artificial (Stable Diffusion). La aplicación utiliza el modelo **Realistic Vision V6.0 B1**, un full finetune de Stable Diffusion 1.5 Hyper que permite generar imágenes realistas en tan solo 4-6 pasos, en comparación con los +20 pasos requeridos por el Stable Diffusion 1.5 tradicional.
 
-Avatar AI es una aplicación web que te permite generar avatares de fantasía únicos y personalizados gracias al poder de la Inteligencia Artificial (Stable Diffusion).  Elige entre una variedad de razas, estilos y accesorios para dar vida a tu personaje ideal.
+---
 
 ## Parte 1: Modelos
 
 ### Modelo Base Utilizado
+- **Nombre:** Realistic Vision V6.0 B1  
+- **Enlace:** [https://civitai.com/models/4201/realistic-vision-v60-b1?modelVersionId=501240](https://civitai.com/models/4201/realistic-vision-v60-b1?modelVersionId=501240)
 
-*   **Nombre:** [Placeholder: Nombre del Modelo Base de CivitAI u otra plataforma]
-*   **Enlace:** [Placeholder: Enlace al Modelo Base]
-*   **Características Principales:**
-    *   [Placeholder: Breve descripción del estilo y capacidades del modelo. Ej: "Especializado en personajes de alta fantasía con un estilo artístico detallado."]
-    *   [Placeholder: Mencionar si es bueno en retratos, cuerpo completo, etc.]
+### Características Principales
+- **Full Finetune:** Basado en Stable Diffusion 1.5 Hyper, optimizado para generar imágenes en 4-6 pasos.
+- **Enfoque Realista:** Especializado en producir imágenes con un alto grado de realismo, ideal para retratos y escenas detalladas.
+- **Eficiencia:** Permite una generación de imágenes mucho más rápida que el modelo tradicional de Stable Diffusion 1.5.
+
+---
 
 ## Parte 2: Interfaz de Usuario
 
 ### Tecnologías Utilizadas
-
-*   [Placeholder:  Streamlit / Otra Tecnología Web]
-*   [Placeholder:  Otras bibliotecas relevantes (si las hay)]
+- **Framework:** Streamlit
+- **Librerías Adicionales:** (añadir aqui lo usado)
 
 ### Características de la Interfaz
-* Se ha seguido la tematica de creación de avatares fantasticos.
+La interfaz se ha diseñado con una temática fantástica para la creación de avatares y combina controles en español con la generación de prompts en inglés, optimizados para el modelo Realistic Vision V6.0 B1.
 
-*   **Selección de Raza:**
-    *   [Placeholder:  Lista desplegable / Botones] con opciones como:
-        *   Elfo/a
-        *   Dragón
-        *   Robot
-        *   [Placeholder: Otras razas]
+#### Selección de Raza
+- **Tipo de Control:** Lista desplegable / Botones
+- **Opciones Disponibles:**
+  - Elfo/a
+  - Dragón
+  - Robot
+  - Humano
+  - Enano
+  - *(Otros…)*
 
-*   **Estilo Artístico:**
-    *   [Placeholder:  Lista desplegable / Botones] con opciones como:
-        *   Estilo Cómic
-        *   Realista
-        *   Acuarela
-        *   [Placeholder: Otros estilos]
+#### Estilo Artístico
+- **Tipo de Control:** Lista desplegable / Botones
+- **Opciones Disponibles:**
+  - Estilo Cómic
+  - Realista
+  - Acuarela
+  - Impresionista
+  - *(Otros…)*
 
-*   **Accesorios:**
-    *   [Placeholder:  Casillas de verificación / Botones] para:
-        *   Armadura
-        *   Alas
-        *   Armas
-        *   [Placeholder: Otros accesorios]
+#### Accesorios
+- **Tipo de Control:** Casillas de verificación / Botones
+- **Opciones Disponibles:**
+  - Armadura
+  - Alas
+  - Armas
+  - Sombrero
+  - Gafas
+  - *(Otros accesorios…)*
 
-*   **Personalización Adicional:**
-    *   [Placeholder:  Si hay controles para colores, poses, expresiones, etc.]
+#### Personalización Adicional
+- **Controles Adicionales:**  
+  - Posibilidad de ajustar colores, poses y expresiones.
+  - **Caja de Texto para Prompts Adicionales:** Permite ingresar descripciones adicionales en inglés para complementar el prompt principal (ejemplo: “with hat”, “in a futuristic style”, etc.).  
+    > **Nota:** Aunque las opciones de selección se muestran en español, el prompt final enviado a la API se genera en inglés, combinando las opciones elegidas y el texto personalizado.
 
-*   **Botón "Generar Avatar":**  [Placeholder: Descripción de lo que sucede al hacer clic. Ej: "Envía los parámetros a la API de Stable Diffusion y muestra la imagen resultante."]
+#### Botón "Generar Avatar"
+- **Descripción:**  
+  Al hacer clic en "Generar Avatar", se recopilan todos los parámetros seleccionados (raza, estilo artístico, accesorios y personalización adicional) y se envían a la API de Stable Diffusion utilizando el modelo Realistic Vision V6.0 B1.  
+  Se genera un prompt en inglés que integra todas las opciones, garantizando la generación de imágenes realistas y detalladas en tan solo 4-6 pasos. La imagen resultante se muestra en pantalla una vez finalizado el proceso.
 
-### Capturas de Pantalla
+---
 
-[Placeholder:  Incluir varias capturas de pantalla de la aplicación en funcionamiento, mostrando diferentes opciones y resultados.]
+## Capturas de Pantalla
+Incluye diversas capturas de pantalla de la aplicación en funcionamiento, mostrando:
+- La pantalla de selección de opciones (raza, estilo, accesorios y personalización).
+- La interfaz de generación y visualización del avatar.
+- Ejemplos de diferentes combinaciones y resultados obtenidos.
+
+---
 
 ## Muestra de Avatares Generados
-
-[Placeholder:  Incluir una galería de imágenes de avatares generados con la aplicación, mostrando la variedad de resultados posibles.]
+Una galería con imágenes de avatares generados por la aplicación, evidenciando la diversidad de resultados posibles gracias a la combinación de estilos y personalizaciones, aprovechando al máximo las capacidades del modelo Realistic Vision V6.0 B1.
 
 ## Autores 
 
