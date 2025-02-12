@@ -1,20 +1,24 @@
 # Avatar AI
 
 ## Descripción
-Avatar AI es una aplicación web que te permite generar avatares de fantasía únicos y personalizados gracias al poder de la Inteligencia Artificial (Stable Diffusion). La aplicación utiliza el modelo **Realistic Vision V6.0 B1**, un full finetune de Stable Diffusion 1.5 Hyper que permite generar imágenes realistas en tan solo 4-6 pasos, en comparación con los +20 pasos requeridos por el Stable Diffusion 1.5 tradicional.
+Avatar AI es una aplicación web que te permite generar avatares únicos y personalizados gracias al poder de Stable Diffusion. La aplicación utiliza dos modelos optimizados para generar imágenes detalladas en tan solo 4-6 pasos, en comparación con los +20 pasos requeridos por el Stable Diffusion 1.5 tradicional:
+
+- **Realistic Vision V6.0 B1** para imágenes realistas.
+- **Waifu Reaper** para imágenes en estilo anime.
 
 ---
 
 ## Parte 1: Modelos
 
-### Modelo Base Utilizado
+### Modelo Realista
 - **Nombre:** Realistic Vision V6.0 B1  
 - **Enlace:** [https://civitai.com/models/4201/realistic-vision-v60-b1?modelVersionId=501240](https://civitai.com/models/4201/realistic-vision-v60-b1?modelVersionId=501240)
 
-### Características Principales
-- **Full Finetune:** Basado en Stable Diffusion 1.5 Hyper, optimizado para generar imágenes en 4-6 pasos.
-- **Enfoque Realista:** Especializado en producir imágenes con un alto grado de realismo, ideal para retratos y escenas detalladas.
-- **Eficiencia:** Permite una generación de imágenes mucho más rápida que el modelo tradicional de Stable Diffusion 1.5.
+### Modelo Anime
+- **Nombre:** Waifu Reaper  
+- **Enlace:** [https://civitai.com/models/24131/waifu-reaper?modelVersionId=648218](https://civitai.com/models/24131/waifu-reaper?modelVersionId=648218)
+
+> **Importante:** Descarga ambos modelos y colócalos en la carpeta `models` de Automatic1111 Stable Diffusion WebUI.
 
 ---
 
@@ -22,55 +26,61 @@ Avatar AI es una aplicación web que te permite generar avatares de fantasía ú
 
 ### Tecnologías Utilizadas
 - **Framework:** Streamlit
-- **Librerías Adicionales:** (añadir aqui lo usado)
 
 ### Características de la Interfaz
-La interfaz se ha diseñado con una temática fantástica para la creación de avatares y combina controles en español con la generación de prompts en inglés, optimizados para el modelo Realistic Vision V6.0 B1.
+La interfaz se ha diseñado con una temática para la creación de avatares y combina controles en español con la generación de prompts en inglés, optimizados para los modelos utilizados.
 
 #### Selección de Raza
-- **Tipo de Control:** Lista desplegable / Botones
+- **Tipo de Control:** Lista desplegable  
 - **Opciones Disponibles:**
   - Elfo/a
   - Dragón
   - Robot
   - Humano
   - Enano
-  - *(Otros…)*
 
 #### Estilo Artístico
-- **Tipo de Control:** Lista desplegable / Botones
+- **Tipo de Control:** Lista desplegable  
 - **Opciones Disponibles:**
-  - Estilo Cómic
-  - Realista
-  - Acuarela
-  - Impresionista
-  - *(Otros…)*
+  - **Realista:** Utiliza el modelo Realistic Vision V6.0 B1.
+  - **Anime:** Utiliza el modelo Waifu Reaper.  
 
 #### Accesorios
-- **Tipo de Control:** Casillas de verificación / Botones
+- **Tipo de Control:** Casillas de verificación  
 - **Opciones Disponibles:**
   - Armadura
   - Alas
   - Armas
   - Sombrero
   - Gafas
-  - *(Otros accesorios…)*
 
 #### Personalización Adicional
-- **Controles Adicionales:**  
-  - Posibilidad de ajustar colores, poses y expresiones.
-  - **Caja de Texto para Prompts Adicionales:** Permite ingresar descripciones adicionales en inglés para complementar el prompt principal (ejemplo: “with hat”, “in a futuristic style”, etc.).  
-    > **Nota:** Aunque las opciones de selección se muestran en español, el prompt final enviado a la API se genera en inglés, combinando las opciones elegidas y el texto personalizado.
+- **Control:** Caja de Texto para Prompts Adicionales  
+  Permite ingresar descripciones adicionales en inglés para complementar el prompt principal (ejemplo: “with hat”, “in a futuristic style”, etc.).  
+
+  > **Nota:** Aunque las opciones de selección se muestran en español, el prompt final enviado a la API se genera en inglés, combinando las opciones elegidas y el texto personalizado.
 
 #### Botón "Generar Avatar"
 - **Descripción:**  
-  Al hacer clic en "Generar Avatar", se recopilan todos los parámetros seleccionados (raza, estilo artístico, accesorios y personalización adicional) y se envían a la API de Stable Diffusion utilizando el modelo Realistic Vision V6.0 B1.  
-  Se genera un prompt en inglés que integra todas las opciones, garantizando la generación de imágenes realistas y detalladas en tan solo 4-6 pasos. La imagen resultante se muestra en pantalla una vez finalizado el proceso.
+  Al hacer clic en "Generar Avatar", se recopilan todos los parámetros seleccionados (raza, estilo artístico, accesorios y personalización adicional) y se envían a la API local de Stable Diffusion WebUI utilizando el modelo correspondiente. Se genera un prompt en inglés que integra todas las opciones, garantizando la generación de imágenes detalladas en tan solo 4-6 pasos. La imagen resultante se muestra en pantalla y se ofrece la opción de descargarla.
+
+---
+
+## Requisitos y Ejecución
+
+- **Servidor Stable Diffusion:**  
+  Recuerda iniciar el servidor de Automatic1111 (stable-diffusion-webui) en modo `--api` para que Streamlit pueda comunicarse correctamente y generar imágenes.
+
+- **Modelos:**  
+  Descarga ambos modelos (Realistic Vision V6.0 B1 y Waifu Reaper) y colócalos en la carpeta `models`.
+
+- **Ejecución de la Aplicación:**  
+  Una vez tengas el servidor en modo API, ejecuta la aplicación Streamlit para comenzar a generar avatares.
 
 ---
 
 ## Capturas de Pantalla
-Incluye diversas capturas de pantalla de la aplicación en funcionamiento, mostrando:
+[PROXIMAMENTE] mostrando:
 - La pantalla de selección de opciones (raza, estilo, accesorios y personalización).
 - La interfaz de generación y visualización del avatar.
 - Ejemplos de diferentes combinaciones y resultados obtenidos.
@@ -78,7 +88,8 @@ Incluye diversas capturas de pantalla de la aplicación en funcionamiento, mostr
 ---
 
 ## Muestra de Avatares Generados
-Una galería con imágenes de avatares generados por la aplicación, evidenciando la diversidad de resultados posibles gracias a la combinación de estilos y personalizaciones, aprovechando al máximo las capacidades del modelo Realistic Vision V6.0 B1.
+[PROXIMAMENTE]
+Una galería con imágenes de avatares generados por la aplicación, evidenciando la diversidad de resultados posibles gracias a la combinación de estilos y personalizaciones.
 
 ## Autores 
 
