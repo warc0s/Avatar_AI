@@ -1,5 +1,9 @@
 # Avatar AI
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/warc0s/Avatar_AI/refs/heads/main/logo.webp" alt="Avatar AI" width="80%">
+</p>
+
 ## Descripción
 Avatar AI es una aplicación web que te permite generar avatares únicos y personalizados gracias al poder de Stable Diffusion. La aplicación utiliza dos modelos optimizados para generar imágenes detalladas en tan solo 4-6 pasos, en comparación con los +20 pasos requeridos por el Stable Diffusion 1.5 tradicional:
 
