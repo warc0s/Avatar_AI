@@ -26,13 +26,18 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- Diccionarios para opciones de raza y accesorios ---
+# --- Diccionarios para opciones de raza, género y accesorios ---
 race_options = {
     "Elfo/a": "elf",
     "Dragón": "dragon",
     "Robot": "robot",
     "Humano": "human",
     "Enano": "dwarf"
+}
+
+gender_options = {
+    "Hombre": "male",
+    "Mujer": "female"
 }
 
 accessories_options = {
@@ -44,9 +49,14 @@ accessories_options = {
 }
 
 # --- Función para construir el prompt optimizado ---
-def generate_avatar_prompt(selected_race, selected_accessories, extra_text):
-    # Comenzar con la raza
-    prompt = f"closeup portrait of a highly detailed {race_options[selected_race]} avatar"
+def generate_avatar_prompt(selected_race, selected_gender, selected_accessories, extra_text):
+    # Si la raza es Dragón o Robot, se omite el género
+    if selected_race in ["Dragón", "Robot"]:
+        prompt = f"closeup portrait of a highly detailed {race_options[selected_race]} avatar"
+    else:
+        # Obtener el descriptor de género en inglés
+        gender_str = gender_options[selected_gender]
+        prompt = f"closeup portrait of a highly detailed {gender_str} {race_options[selected_race]} avatar"
     
     # Si hay accesorios, se añaden de forma natural
     if selected_accessories:
@@ -73,11 +83,28 @@ def generate_image(prompt, style):
     )
     seed = random.randint(0, 2**32 - 1)
     
-    # Seleccionar el modelo según el estilo elegido
-    if style == "Anime":
+    # Normalizar el string del estilo para evitar discrepancias
+    style_normalized = style.strip().lower()
+    if style_normalized == "anime":
         model_checkpoint = "waifuReaper_testMod22Crow.safetensors [2146b17441]"
-    else:  # Realista
+        steps = 6
+        cfg_scale = 1.5
+    elif style_normalized == "realista":
         model_checkpoint = "realisticVisionV60B1_v51HyperVAE.safetensors [f47e942ad4]"
+        steps = 6
+        cfg_scale = 1.5
+    elif style_normalized == "cartoon pixar":
+        model_checkpoint = "disneyPixarCartoon_v10.safetensors [d6548414b4]"
+        steps = 20
+        cfg_scale = 7.5
+    elif style_normalized == "pixel monster":
+        model_checkpoint = "pixelmonster_v10.safetensors [8d3794d9eb]"
+        steps = 20
+        cfg_scale = 5
+    else:
+        model_checkpoint = "realisticVisionV60B1_v51HyperVAE.safetensors [f47e942ad4]"
+        steps = 6
+        cfg_scale = 1.5
 
     payload = {
         "prompt": prompt,
@@ -85,8 +112,8 @@ def generate_image(prompt, style):
         "width": 512,
         "height": 512,
         "sampler_name": "DPM++ SDE",
-        "steps": 6,
-        "cfg_scale": 1.5,
+        "steps": steps,
+        "cfg_scale": cfg_scale,
         "seed": seed,
         "override_settings": {
             "sd_model_checkpoint": model_checkpoint
@@ -117,8 +144,8 @@ def main():
     st.title("Avatar AI")
     st.markdown(
         """
-        Genera avatares de fantasía únicos utilizando modelos de **Realistic Vision V6.0 B1** o **Waifu Reaper** (Anime).<br>
-        Selecciona la raza, los accesorios y añade detalles adicionales en inglés.
+        Genera avatares de fantasía únicos utilizando modelos de **Realistic Vision V6.0 B1**, **Waifu Reaper** (Anime), **Disney/Pixar Cartoon** o **Pixel Monster**.<br>
+        Selecciona el estilo, la raza (según disponibilidad), los accesorios y añade detalles adicionales en inglés.
         """,
         unsafe_allow_html=True,
     )
@@ -129,10 +156,23 @@ def main():
 
     # --- Sidebar: Opciones de Personalización ---
     st.sidebar.header("Opciones de Personalización")
-    selected_race = st.sidebar.selectbox("Selecciona la Raza:", list(race_options.keys()))
-
-    # Selector para el estilo
-    selected_style = st.sidebar.selectbox("Estilo", ["Realista", "Anime"])
+    
+    # Selector para el estilo (incluye los nuevos modelos)
+    selected_style = st.sidebar.selectbox("Estilo", ["Realista", "Anime", "Cartoon Pixar", "Pixel Monster"])
+    
+    # Para el estilo Anime se fuerza la raza a Humano y se informa al usuario
+    if selected_style.strip().lower() == "anime":
+        selected_race = "Humano"
+        st.sidebar.warning("Advertencia: El estilo Anime solo permite la raza Humano.")
+    else:
+        selected_race = st.sidebar.selectbox("Selecciona la Raza:", list(race_options.keys()))
+    
+    # Selección del género: Si la raza es Dragón o Robot, se omite y se informa al usuario.
+    if selected_race in ["Dragón", "Robot"]:
+        st.sidebar.info("El género no es seleccionable para la raza seleccionada. Se omitirá en el prompt.")
+        selected_gender = None
+    else:
+        selected_gender = st.sidebar.selectbox("Selecciona el Género:", list(gender_options.keys()))
     
     st.sidebar.markdown("### Accesorios")
     selected_accessories = []
@@ -141,19 +181,19 @@ def main():
             selected_accessories.append(accessories_options[accessory])
     
     extra_text = st.sidebar.text_input("Detalles adicionales (en inglés):", "")
-
-    # Generar el prompt final
-    final_prompt = generate_avatar_prompt(selected_race, selected_accessories, extra_text)
+    
+    # Generar el prompt final incluyendo género si corresponde
+    final_prompt = generate_avatar_prompt(selected_race, selected_gender, selected_accessories, extra_text)
     st.markdown("### Prompt generado:")
-    st.code(final_prompt, language="none")
-
+    st.markdown(f"<pre style='white-space: pre-wrap; word-wrap: break-word;'>{final_prompt}</pre>", unsafe_allow_html=True)
+    
     # --- Botón para generar el avatar ---
     if st.button("Generar Avatar"):
         with st.spinner("Generando imagen..."):
             image_bytes = generate_image(final_prompt, selected_style)
             if image_bytes:
                 st.session_state["image_bytes"] = image_bytes
-
+    
     # Mostrar la imagen y el botón de descarga (la imagen se mantiene en pantalla incluso tras descargar)
     if st.session_state["image_bytes"]:
         st.image(st.session_state["image_bytes"], caption="Avatar Generado", width=512)
