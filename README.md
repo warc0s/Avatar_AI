@@ -5,7 +5,7 @@
 </p>
 
 ## Descripción
-Avatar AI es una aplicación web que te permite generar avatares únicos y personalizados gracias al poder de Stable Diffusion. La aplicación utiliza modelos optimizados para generar imágenes detalladas en tan solo 4-6 pasos, en comparación con los +20 pasos requeridos por el Stable Diffusion 1.5 tradicional:
+Avatar AI es una aplicación web que te permite generar avatares únicos y personalizados gracias al poder de Stable Diffusion. La aplicación utiliza modelos optimizados para generar avatares detallados, en una variedad de estilos, razas y accesorios.
 
 - **Realistic Vision V6.0 B1** para imágenes realistas.
 - **Waifu Reaper** para imágenes en estilo anime.
@@ -86,7 +86,7 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
 
 #### Botón "Generar Avatar"
 - **Descripción:**  
-  Al hacer clic en "Generar Avatar", se recopilan todos los parámetros seleccionados (raza, género, estilo artístico, accesorios y personalización adicional) y se envían a la API local de Stable Diffusion WebUI utilizando el modelo correspondiente. Se genera un prompt en inglés que integra todas las opciones, garantizando la generación de imágenes detalladas en tan solo 4-6 pasos. La imagen resultante se muestra en pantalla y se ofrece la opción de descargarla.
+  Al hacer clic en "Generar Avatar", se recopilan todos los parámetros seleccionados (raza, género, estilo artístico, accesorios y personalización adicional) y se envían a la API local de Stable Diffusion WebUI utilizando el modelo correspondiente. Se genera un prompt en inglés que integra todas las opciones, garantizando la generación de avatares detallados. La imagen resultante se muestra en pantalla y se ofrece la opción de descargarla.
 
 ## Requisitos y Ejecución
 
