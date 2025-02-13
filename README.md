@@ -116,6 +116,7 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
 </p>
 
   > **Nota:** Puedes revisarlos todos uno a uno dentro de la carperta "avatar_examples".
+ 
   > **Nota2:** Hemos generado este banner uniendo los 8 avatares con el script "img_joiner.py" que tambien hemos subido.
 
 ## Autores 
