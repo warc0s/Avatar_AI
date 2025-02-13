@@ -58,7 +58,7 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
 - **Opciones Disponibles:**
   - Hombre
   - Mujer  
-  *Nota: El género solo es seleccionable para la raza "Humano". Si se elige "Dragón" o "Robot", el control de género no estará disponible.*
+  *Nota: El género solo es seleccionable para las razas "Humano", "Elfo/a" o "Enano". Si se elige "Dragón" o "Robot", el control de género no estará disponible.*
 
 #### Estilo Artístico
 - **Tipo de Control:** Lista desplegable  
