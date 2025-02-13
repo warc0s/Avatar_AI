@@ -57,7 +57,8 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
 - **Tipo de Control:** Lista desplegable  
 - **Opciones Disponibles:**
   - Hombre
-  - Mujer
+  - Mujer  
+  *Nota: El género solo es seleccionable para la raza "Humano". Si se elige "Dragón" o "Robot", el control de género no estará disponible.*
 
 #### Estilo Artístico
 - **Tipo de Control:** Lista desplegable  
@@ -93,7 +94,7 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
   Recuerda iniciar el servidor de Automatic1111 (stable-diffusion-webui) en modo `--api` para que Streamlit pueda comunicarse correctamente y generar imágenes.
 
 - **Modelos:**  
-  Descarga ambos modelos (Realistic Vision V6.0 B1 y Waifu Reaper) y colócalos en la carpeta `models`.
+  Descarga todos los modelos (Realistic Vision V6.0 B1, Waifu Reaper, Disney Pixar Cartoon Type A y PixelMonster) y colócalos en la carpeta `models`.
 
 - **Ejecución de la Aplicación:**  
   Una vez tengas el servidor en modo API, ejecuta la aplicación Streamlit para comenzar a generar avatares.
