@@ -110,8 +110,12 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
 ---
 
 ## Muestra de Avatares Generados
-[PROXIMAMENTE]
-Una galería con imágenes de avatares generados por la aplicación, evidenciando la diversidad de resultados posibles gracias a la combinación de estilos y personalizaciones.
+
+<p align="center">
+  <img src="https://github.com/warc0s/Avatar_AI/blob/main/avatar_examples/joined_image.png?raw=true" alt="Avatares Generados" width="100%">
+</p>
+
+  > **Nota:** Puedes revisarlos todos uno a uno dentro de la carperta "avatar_examples".
 
 ## Autores 
 
