@@ -5,10 +5,12 @@
 </p>
 
 ## Descripción
-Avatar AI es una aplicación web que te permite generar avatares únicos y personalizados gracias al poder de Stable Diffusion. La aplicación utiliza dos modelos optimizados para generar imágenes detalladas en tan solo 4-6 pasos, en comparación con los +20 pasos requeridos por el Stable Diffusion 1.5 tradicional:
+Avatar AI es una aplicación web que te permite generar avatares únicos y personalizados gracias al poder de Stable Diffusion. La aplicación utiliza modelos optimizados para generar imágenes detalladas en tan solo 4-6 pasos, en comparación con los +20 pasos requeridos por el Stable Diffusion 1.5 tradicional:
 
 - **Realistic Vision V6.0 B1** para imágenes realistas.
 - **Waifu Reaper** para imágenes en estilo anime.
+- **Disney Pixar Cartoon Type A** para un estilo Cartoon Pixar.
+- **PixelMonster** para un estilo Pixel Art.
 
 ---
 
@@ -22,7 +24,15 @@ Avatar AI es una aplicación web que te permite generar avatares únicos y perso
 - **Nombre:** Waifu Reaper  
 - **Enlace:** [https://civitai.com/models/24131/waifu-reaper?modelVersionId=648218](https://civitai.com/models/24131/waifu-reaper?modelVersionId=648218)
 
-> **Importante:** Descarga ambos modelos y colócalos en la carpeta `models` de Automatic1111 Stable Diffusion WebUI.
+### Modelo Cartoon Pixar
+- **Nombre:** Disney Pixar Cartoon Type A  
+- **Enlace:** [https://civitai.com/models/65203/disney-pixar-cartoon-type-a](https://civitai.com/models/65203/disney-pixar-cartoon-type-a)
+
+### Modelo Pixel Art
+- **Nombre:** PixelMonster  
+- **Enlace:** [https://civitai.com/models/1034297/pixelmonster](https://civitai.com/models/1034297/pixelmonster)
+
+> **Importante:** Descarga los modelos necesarios y colócalos en la carpeta `models` de Automatic1111 Stable Diffusion WebUI.
 
 ---
 
@@ -43,11 +53,20 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
   - Humano
   - Enano
 
+#### Selección de Género
+- **Tipo de Control:** Lista desplegable  
+- **Opciones Disponibles:**
+  - Hombre
+  - Mujer
+
 #### Estilo Artístico
 - **Tipo de Control:** Lista desplegable  
 - **Opciones Disponibles:**
   - **Realista:** Utiliza el modelo Realistic Vision V6.0 B1.
   - **Anime:** Utiliza el modelo Waifu Reaper.  
+    *Nota: Este estilo solo es compatible con la raza "Humano", debido al entrenamiento del modelo.*
+  - **Cartoon Pixar:** Utiliza el modelo Disney Pixar Cartoon Type A.
+  - **Pixel Art:** Utiliza el modelo PixelMonster.
 
 #### Accesorios
 - **Tipo de Control:** Casillas de verificación  
@@ -60,15 +79,13 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
 
 #### Personalización Adicional
 - **Control:** Caja de Texto para Prompts Adicionales  
-  Permite ingresar descripciones adicionales en inglés para complementar el prompt principal (ejemplo: “with hat”, “in a futuristic style”, etc.).  
+  Permite ingresar descripciones adicionales en inglés para complementar el prompt principal (ejemplo: “with hat”, “in a futuristic style”, etc.).
 
   > **Nota:** Aunque las opciones de selección se muestran en español, el prompt final enviado a la API se genera en inglés, combinando las opciones elegidas y el texto personalizado.
 
 #### Botón "Generar Avatar"
 - **Descripción:**  
-  Al hacer clic en "Generar Avatar", se recopilan todos los parámetros seleccionados (raza, estilo artístico, accesorios y personalización adicional) y se envían a la API local de Stable Diffusion WebUI utilizando el modelo correspondiente. Se genera un prompt en inglés que integra todas las opciones, garantizando la generación de imágenes detalladas en tan solo 4-6 pasos. La imagen resultante se muestra en pantalla y se ofrece la opción de descargarla.
-
----
+  Al hacer clic en "Generar Avatar", se recopilan todos los parámetros seleccionados (raza, género, estilo artístico, accesorios y personalización adicional) y se envían a la API local de Stable Diffusion WebUI utilizando el modelo correspondiente. Se genera un prompt en inglés que integra todas las opciones, garantizando la generación de imágenes detalladas en tan solo 4-6 pasos. La imagen resultante se muestra en pantalla y se ofrece la opción de descargarla.
 
 ## Requisitos y Ejecución
 
