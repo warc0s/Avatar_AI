@@ -106,21 +106,21 @@ La interfaz se ha diseñado con una temática para la creación de avatares y co
 
 
 <p align="center">
-  <img src="https://github.com/warc0s/Avatar_AI/blob/main/capture_img/vista_principal.png?raw=true" alt="Vista Principal" width="60%">
+  <img src="https://github.com/warc0s/Avatar_AI/blob/main/capture_img/vista_principal.png?raw=true" alt="Vista Principal en Streamlit" width="80%">
 </p>
 
 - La pantalla de selección de opciones (raza, estilo, accesorios y personalización).
 <p align="center">
-  <img src="https://github.com/warc0s/Avatar_AI/blob/main/capture_img/aviso1.png?raw=true" alt="Aviso 1" width="60%">
+  <img src="https://github.com/warc0s/Avatar_AI/blob/main/capture_img/aviso1.png?raw=true" alt="Aviso 1" width="50%">
 </p>
 
 <p align="center">
-  <img src="https://github.com/warc0s/Avatar_AI/blob/main/capture_img/aviso2.png?raw=true" alt="Aviso 2" width="60%">
+  <img src="https://github.com/warc0s/Avatar_AI/blob/main/capture_img/aviso2.png?raw=true" alt="Aviso 2" width="50%">
 </p>
 
 - Ejemplos de diferentes combinaciones y resultados obtenidos.
 <p align="center">
-  <img src="https://github.com/warc0s/Avatar_AI/blob/main/capture_img/imagen_creada.png" alt="Imagen creada" width="60%">
+  <img src="https://github.com/warc0s/Avatar_AI/blob/main/capture_img/imagen_creada.png" alt="Imagen generada" width="80%">
 </p>
 
 ---
